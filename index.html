@@ -1,0 +1,261 @@
+
+function miner(){
+  ctx.save();
+  ctx.translate(450,70);
+  const bob = running && phase==="swing"
+    ? Math.sin(performance.now()/180)*1.5 : 0;
+  ctx.translate(0,bob);
+
+  // Bóng chân
+  ctx.fillStyle="rgba(40,20,15,.3)";
+  ctx.beginPath();
+  ctx.ellipse(0,49,43,8,0,0,Math.PI*2);
+  ctx.fill();
+
+  // Ba lô
+  let pack=ctx.createLinearGradient(20,0,40,0);
+  pack.addColorStop(0,"#713b22");
+  pack.addColorStop(.5,"#d58a45");
+  pack.addColorStop(1,"#66351f");
+  ctx.fillStyle=pack;
+  ctx.strokeStyle="#4d2a20";
+  ctx.lineWidth=3;
+  ctx.beginPath();
+  ctx.roundRect(20,-1,18,35,6);
+  ctx.fill();ctx.stroke();
+  ctx.fillStyle="#ffd166";
+  ctx.fillRect(24,8,10,4);
+
+  // Quần
+  let pants=ctx.createLinearGradient(0,20,0,45);
+  pants.addColorStop(0,"#477eb4");
+  pants.addColorStop(1,"#203653");
+  ctx.fillStyle=pants;
+  ctx.strokeStyle="#172d48";
+  ctx.lineWidth=3;
+  ctx.beginPath();
+  ctx.moveTo(-21,20);ctx.lineTo(-3,22);
+  ctx.lineTo(-8,43);ctx.lineTo(-24,43);
+  ctx.closePath();ctx.fill();ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(3,22);ctx.lineTo(21,20);
+  ctx.lineTo(25,43);ctx.lineTo(9,43);
+  ctx.closePath();ctx.fill();ctx.stroke();
+
+  // Ủng da
+  ctx.fillStyle="#593725";
+  ctx.strokeStyle="#291b18";
+  ctx.beginPath();
+  ctx.roundRect(-29,39,23,12,5);
+  ctx.fill();ctx.stroke();
+  ctx.beginPath();
+  ctx.roundRect(6,39,25,12,5);
+  ctx.fill();ctx.stroke();
+  ctx.strokeStyle="#d6a46a";
+  ctx.lineWidth=2;
+  ctx.beginPath();
+  ctx.moveTo(-25,47);ctx.lineTo(-9,47);
+  ctx.moveTo(10,47);ctx.lineTo(27,47);
+  ctx.stroke();
+
+  // Áo khoác xanh
+  let jacket=ctx.createLinearGradient(-25,-5,25,30);
+  jacket.addColorStop(0,"#58b5f4");
+  jacket.addColorStop(.5,"#2876b9");
+  jacket.addColorStop(1,"#17436e");
+  ctx.fillStyle=jacket;
+  ctx.strokeStyle="#173a5c";
+  ctx.lineWidth=3;
+  ctx.beginPath();
+  ctx.moveTo(-20,-7);
+  ctx.quadraticCurveTo(0,-15,20,-7);
+  ctx.lineTo(28,22);
+  ctx.quadraticCurveTo(0,34,-28,22);
+  ctx.closePath();ctx.fill();ctx.stroke();
+
+  // Cổ áo và khăn đỏ
+  ctx.fillStyle="#ffcf62";
+  ctx.beginPath();
+  ctx.moveTo(-12,-8);ctx.lineTo(0,2);
+  ctx.lineTo(12,-8);ctx.lineTo(7,3);
+  ctx.lineTo(0,9);ctx.lineTo(-7,3);
+  ctx.closePath();ctx.fill();
+  ctx.fillStyle="#e34d36";
+  ctx.beginPath();
+  ctx.moveTo(-8,1);ctx.lineTo(8,1);
+  ctx.lineTo(5,10);ctx.lineTo(0,14);
+  ctx.lineTo(-5,10);ctx.closePath();ctx.fill();
+
+  // Túi áo và dây đeo
+  ctx.fillStyle="#195487";
+  ctx.strokeStyle="#9bd6ff";
+  ctx.lineWidth=1.5;
+  ctx.beginPath();
+  ctx.roundRect(-20,9,11,10,3);
+  ctx.fill();ctx.stroke();
+  ctx.beginPath();
+  ctx.roundRect(9,9,11,10,3);
+  ctx.fill();ctx.stroke();
+
+  ctx.strokeStyle="#593a28";
+  ctx.lineWidth=5;
+  ctx.beginPath();
+  ctx.moveTo(-17,-4);ctx.lineTo(17,24);
+  ctx.stroke();
+  ctx.strokeStyle="#e5b66b";
+  ctx.lineWidth=1.5;
+  ctx.beginPath();
+  ctx.moveTo(-17,-4);ctx.lineTo(17,24);
+  ctx.stroke();
+
+  // Cánh tay và găng tay
+  ctx.lineCap="round";
+  ctx.strokeStyle="#2876b9";
+  ctx.lineWidth=12;
+  ctx.beginPath();
+  ctx.moveTo(-19,-1);ctx.lineTo(-34,12);
+  ctx.moveTo(19,-1);ctx.lineTo(34,12);
+  ctx.stroke();
+
+  ctx.strokeStyle="#efb27b";
+  ctx.lineWidth=9;
+  ctx.beginPath();
+  ctx.moveTo(-33,11);ctx.lineTo(-38,18);
+  ctx.moveTo(33,11);ctx.lineTo(38,18);
+  ctx.stroke();
+
+  ctx.fillStyle="#493630";
+  ctx.strokeStyle="#241c1a";
+  ctx.lineWidth=2;
+  ctx.beginPath();
+  ctx.roundRect(-44,14,14,12,5);
+  ctx.fill();ctx.stroke();
+  ctx.beginPath();
+  ctx.roundRect(30,14,14,12,5);
+  ctx.fill();ctx.stroke();
+
+  // Cổ
+  ctx.fillStyle="#c98554";
+  ctx.fillRect(-7,-19,14,13);
+
+  // Tai
+  ctx.fillStyle="#e9ad78";
+  ctx.strokeStyle="#8d5338";
+  ctx.lineWidth=2;
+  ctx.beginPath();
+  ctx.ellipse(-21,-27,5,8,0,0,Math.PI*2);
+  ctx.fill();ctx.stroke();
+  ctx.beginPath();
+  ctx.ellipse(21,-27,5,8,0,0,Math.PI*2);
+  ctx.fill();ctx.stroke();
+
+  // Khuôn mặt chuyển sắc
+  let skin=ctx.createLinearGradient(-15,-48,16,-9);
+  skin.addColorStop(0,"#ffd9a5");
+  skin.addColorStop(1,"#d9915e");
+  ctx.fillStyle=skin;
+  ctx.strokeStyle="#8d5338";
+  ctx.lineWidth=2.5;
+  ctx.beginPath();
+  ctx.moveTo(-17,-45);
+  ctx.quadraticCurveTo(-23,-29,-16,-15);
+  ctx.quadraticCurveTo(0,-3,16,-15);
+  ctx.quadraticCurveTo(23,-30,17,-45);
+  ctx.quadraticCurveTo(0,-56,-17,-45);
+  ctx.closePath();ctx.fill();ctx.stroke();
+
+  // Tóc mai
+  ctx.fillStyle="#583522";
+  ctx.beginPath();
+  ctx.moveTo(-18,-39);ctx.lineTo(-17,-23);
+  ctx.lineTo(-12,-28);ctx.lineTo(-10,-39);
+  ctx.closePath();ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(18,-39);ctx.lineTo(17,-23);
+  ctx.lineTo(12,-28);ctx.lineTo(10,-39);
+  ctx.closePath();ctx.fill();
+
+  // Lông mày
+  ctx.strokeStyle="#59331f";
+  ctx.lineWidth=3;
+  ctx.lineCap="round";
+  ctx.beginPath();
+  ctx.moveTo(-13,-32);ctx.lineTo(-5,-34);
+  ctx.moveTo(5,-34);ctx.lineTo(13,-32);
+  ctx.stroke();
+
+  // Mắt có ánh sáng
+  ctx.fillStyle="#fff8e8";
+  ctx.beginPath();
+  ctx.ellipse(-8,-27,4.2,5,0,0,Math.PI*2);
+  ctx.ellipse(8,-27,4.2,5,0,0,Math.PI*2);
+  ctx.fill();
+  ctx.fillStyle="#273d52";
+  ctx.beginPath();
+  ctx.arc(-7,-26,2.3,0,Math.PI*2);
+  ctx.arc(9,-26,2.3,0,Math.PI*2);
+  ctx.fill();
+  ctx.fillStyle="#fff";
+  ctx.beginPath();
+  ctx.arc(-7.5,-27,1,0,Math.PI*2);
+  ctx.arc(8.5,-27,1,0,Math.PI*2);
+  ctx.fill();
+
+  // Mũi, má và nụ cười
+  ctx.fillStyle="#d98e60";
+  ctx.beginPath();
+  ctx.ellipse(0,-20,3,2.5,0,0,Math.PI*2);
+  ctx.fill();
+  ctx.fillStyle="#e98c77";
+  ctx.globalAlpha=.55;
+  ctx.beginPath();
+  ctx.ellipse(-13,-20,4,2.5,0,0,Math.PI*2);
+  ctx.ellipse(13,-20,4,2.5,0,0,Math.PI*2);
+  ctx.fill();
+  ctx.globalAlpha=1;
+  ctx.strokeStyle="#85432f";
+  ctx.lineWidth=2.2;
+  ctx.beginPath();
+  ctx.moveTo(-6,-15);
+  ctx.quadraticCurveTo(0,-10,7,-15);
+  ctx.stroke();
+
+  // Mũ bảo hộ vàng
+  let helmet=ctx.createLinearGradient(-22,-64,22,-38);
+  helmet.addColorStop(0,"#fff06a");
+  helmet.addColorStop(.45,"#ffc52e");
+  helmet.addColorStop(1,"#e58a18");
+  ctx.fillStyle=helmet;
+  ctx.strokeStyle="#98551d";
+  ctx.lineWidth=2.5;
+  ctx.beginPath();
+  ctx.moveTo(-22,-42);
+  ctx.quadraticCurveTo(-20,-63,0,-65);
+  ctx.quadraticCurveTo(20,-63,22,-42);
+  ctx.closePath();ctx.fill();ctx.stroke();
+
+  // Vành mũ
+  ctx.fillStyle="#ffe98b";
+  ctx.beginPath();
+  ctx.ellipse(0,-42,32,6,0,0,Math.PI*2);
+  ctx.fill();ctx.stroke();
+
+  // Đèn mũ phát sáng
+  ctx.save();
+  ctx.shadowColor="#fff6a3";
+  ctx.shadowBlur=18;
+  ctx.fillStyle="#fffbd0";
+  ctx.strokeStyle="#a86b24";
+  ctx.lineWidth=2;
+  ctx.beginPath();
+  ctx.roundRect(-7,-63,14,13,4);
+  ctx.fill();ctx.stroke();
+  ctx.restore();
+
+  ctx.fillStyle="#fff";
+  ctx.beginPath();
+  ctx.arc(-2,-59,2.5,0,Math.PI*2);
+  ctx.fill();
+
+  ctx.restore();
+}
